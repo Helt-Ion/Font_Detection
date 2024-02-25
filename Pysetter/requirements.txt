@@ -1,0 +1,6 @@
+opencv_python
+matplotlib
+torchsummary
+imageio
+python-docx
+django

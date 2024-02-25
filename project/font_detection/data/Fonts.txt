@@ -1,0 +1,6 @@
+仿宋 FangSong C:/Windows/Fonts/SimFang.ttf 0
+黑体 HeiTi C:/Windows/Fonts/SimHei.ttf 0
+楷体 KaiTi C:/Windows/Fonts/SimKai.ttf 0
+隶书 LiShu C:/Windows/Fonts/SIMLI.ttf 0
+宋体 SongTi C:/Windows/Fonts/SimSun.ttc 0
+等线 DengXian C:/Windows/Fonts/Deng.ttf 0
