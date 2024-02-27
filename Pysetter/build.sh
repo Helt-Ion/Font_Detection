@@ -15,7 +15,10 @@ export PYTHON_BASE_FULL="$PWD/$PYTHON_BASE/bin/python3.10"
 export VENV_DIR=venv
 export PYTHON="$PWD/$VENV_DIR/bin/python3.10"
 
-cp -r $PYTHON_BASE $PWD/$VENV_DIR
+if [ ! -d $VENV_DIR ]; then
+  echo Creating venv...
+  cp -r $PYTHON_BASE $VENV_DIR
+fi
 
 $PYTHON build.py
 

@@ -10,3 +10,4 @@ git config --global --unset http.proxy
 echo Resetting pip proxy...
 
 $PYTHON_BASE_FULL -m pip config unset global.proxy
+
