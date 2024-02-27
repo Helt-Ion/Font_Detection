@@ -2,7 +2,7 @@
 
 # export INSTALL_TORCH=
 # export TORCH_INDEX_URL=
-# export TORCH_PACKAGE=
+export TORCH_PACKAGE=torch-2.1.2+cu121-cp310-cp310-linux_x86_64.whl
 # export TORCHVISION_PACKAGE=
 export INSTALL_XFORMERS=False
 # export XFORMERS_PACKAGE=
