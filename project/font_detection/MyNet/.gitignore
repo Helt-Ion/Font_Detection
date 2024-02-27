@@ -1,4 +1,0 @@
-models/**/*.*
-checkpoint/**/*.*
-test/**/*.*
-!.gitkeep
