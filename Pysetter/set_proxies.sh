@@ -12,4 +12,3 @@ echo Setting pip proxy...
 $PYTHON_BASE_FULL -m pip config set global.proxy http://127.0.0.1:7890
 
 read
-

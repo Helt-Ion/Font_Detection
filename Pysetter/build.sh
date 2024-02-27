@@ -23,4 +23,3 @@ fi
 $PYTHON build.py
 
 read
-

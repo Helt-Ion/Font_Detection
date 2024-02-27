@@ -8,6 +8,6 @@ if [ ! -d $VENV_DIR ]; then
   exit 0
 fi
 
-$PYTHON env_test.py
+$PYTHON update_env.py
 
 read
