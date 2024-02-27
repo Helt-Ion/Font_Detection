@@ -11,3 +11,5 @@ echo Resetting pip proxy...
 
 $PYTHON_BASE_FULL -m pip config unset global.proxy
 
+read
+

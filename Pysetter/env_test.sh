@@ -10,3 +10,5 @@ fi
 
 $PYTHON env_test.py
 
+read
+
