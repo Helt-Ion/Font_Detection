@@ -102,8 +102,8 @@ def main():
 		if os.path.exists(output_img_path):
 			shutil.rmtree(output_img_path)
 		os.makedirs(output_img_path, exist_ok=True)
-		cv2.imshow('Words Preview', words_preview)
-		cv2.waitKey()
+		# cv2.imshow('Words Preview', words_preview)
+		# cv2.waitKey()
 		for i, word_img in enumerate(words):
 			word_dir = os.path.join(output_img_path, f"word_{i:04}")
 			print(f"Creating dir \"{word_dir}\"...")
@@ -111,8 +111,8 @@ def main():
 				shutil.rmtree(word_dir)
 			os.makedirs(word_dir, exist_ok=True)
 			characters_preview, characters = segment_character(word_img, global_font_size, global_accept_ratio)
-			cv2.imshow('Characters Preview', characters_preview)
-			cv2.waitKey()
+			# cv2.imshow('Characters Preview', characters_preview)
+			# cv2.waitKey()
 			for i, character_img in enumerate(characters):
 				character_img_file = os.path.join(word_dir, f"{i:04}.png")
 				print(f"Writing image to \"{character_img_file}\"...")

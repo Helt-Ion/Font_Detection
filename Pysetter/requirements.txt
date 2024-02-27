@@ -1,4 +1,4 @@
-opencv_python
+opencv-python
 matplotlib
 torchsummary
 imageio

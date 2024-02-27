@@ -8,6 +8,7 @@ from PIL import Image, ImageFont, ImageDraw
 from modules import filereader
 
 global_data_path = "data"
+global_font_path = "fonts"
 
 
 def generate_train_dataset(data_path):
@@ -20,6 +21,7 @@ def generate_train_dataset(data_path):
 		shutil.rmtree(file_root_dir)
 	os.makedirs(file_root_dir, exist_ok=True)
 	for _, (label, font, bias) in enumerate(zip(classes, font_list, font_bias)):
+		font_file = os.path.join(global_font_path, font)
 		font_dir = os.path.join(file_root_dir, label)
 		if not os.path.exists(font_dir):
 			os.mkdir(font_dir)
@@ -28,7 +30,7 @@ def generate_train_dataset(data_path):
 			draw = ImageDraw.Draw(img)
 			# 在图片上添加文字
 			# fill用来设置绘制文字的颜色,(R,G,B)
-			draw.text((0, bias), word, fill=(0, 0, 0), font=ImageFont.truetype(font, 32, encoding="utf-8"))
+			draw.text((0, bias), word, fill=(0, 0, 0), font=ImageFont.truetype(font_file, 32, encoding="utf-8"))
 			img_cv2 = cv2.cvtColor(numpy.array(img), cv2.COLOR_RGB2GRAY)
 			_, output_img = cv2.threshold(img_cv2, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY)
 			output_img = cv2.cvtColor(output_img, cv2.COLOR_GRAY2BGR)
@@ -48,6 +50,7 @@ def generate_test_dataset(data_path):
 	os.makedirs(file_root_dir, exist_ok=True)
 	indexes = random.sample(range(0, len(f_words)), len(f_words) // 5)
 	for _, (label, font, bias) in enumerate(zip(classes, font_list, font_bias)):
+		font_file = os.path.join(global_font_path, font)
 		font_dir = os.path.join(file_root_dir, label)
 		if not os.path.exists(font_dir):
 			os.mkdir(font_dir)
@@ -57,7 +60,7 @@ def generate_test_dataset(data_path):
 			draw = ImageDraw.Draw(img)
 			# 在图片上添加文字
 			# fill用来设置绘制文字的颜色,(R,G,B)
-			draw.text((0, bias), word, fill=(0, 0, 0), font=ImageFont.truetype(font, 32, encoding="utf-8"))
+			draw.text((0, bias), word, fill=(0, 0, 0), font=ImageFont.truetype(font_file, 32, encoding="utf-8"))
 			img_cv2 = cv2.cvtColor(numpy.array(img), cv2.COLOR_RGB2GRAY)
 			_, output_img = cv2.threshold(img_cv2, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY)
 			output_img = cv2.cvtColor(output_img, cv2.COLOR_GRAY2BGR)
