@@ -8,21 +8,23 @@ from PIL import Image, ImageFont, ImageDraw
 from modules import filereader
 
 global_data_path = "data"
-global_font_path = "fonts"
 
 
 def generate_train_dataset(data_path):
+	print(f"Generating train dataset...")
 	words_path = os.path.join(data_path, "Words.txt")
-	fonts_path = os.path.join(data_path, "Fonts.txt")
+	fonts_info_path = os.path.join(data_path, "Fonts.txt")
+	fonts_lib_path = os.path.join(data_path, "fonts")
 	file_root_dir = os.path.join(data_path, "train")
 	f_words = filereader.read_words(words_path)
-	font_label, classes, font_list, font_bias = filereader.read_fonts(fonts_path)
+	font_label, classes, font_list, font_bias = filereader.read_fonts(fonts_info_path)
 	if os.path.exists(file_root_dir):
 		shutil.rmtree(file_root_dir)
 	os.makedirs(file_root_dir, exist_ok=True)
 	for _, (label, font, bias) in enumerate(zip(classes, font_list, font_bias)):
-		font_file = os.path.join(global_font_path, font)
+		font_file = os.path.join(fonts_lib_path, font)
 		font_dir = os.path.join(file_root_dir, label)
+		print(f"Generating {label} from {font_file}...")
 		if not os.path.exists(font_dir):
 			os.mkdir(font_dir)
 		for i, word in enumerate(f_words):
@@ -40,18 +42,21 @@ def generate_train_dataset(data_path):
 
 
 def generate_test_dataset(data_path):
+	print(f"Generating test dataset...")
 	words_path = os.path.join(data_path, "Words.txt")
-	fonts_path = os.path.join(data_path, "Fonts.txt")
+	fonts_info_path = os.path.join(data_path, "Fonts.txt")
+	fonts_lib_path = os.path.join(data_path, "fonts")
 	file_root_dir = os.path.join(data_path, "test")
 	f_words = filereader.read_words(words_path)
-	font_label, classes, font_list, font_bias = filereader.read_fonts(fonts_path)
+	font_label, classes, font_list, font_bias = filereader.read_fonts(fonts_info_path)
 	if os.path.exists(file_root_dir):
 		shutil.rmtree(file_root_dir)
 	os.makedirs(file_root_dir, exist_ok=True)
 	indexes = random.sample(range(0, len(f_words)), len(f_words) // 5)
 	for _, (label, font, bias) in enumerate(zip(classes, font_list, font_bias)):
-		font_file = os.path.join(global_font_path, font)
+		font_file = os.path.join(fonts_lib_path, font)
 		font_dir = os.path.join(file_root_dir, label)
+		print(f"Generating {label} from {font_file}...")
 		if not os.path.exists(font_dir):
 			os.mkdir(font_dir)
 		for i in indexes:

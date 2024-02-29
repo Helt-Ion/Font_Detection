@@ -1,10 +1,10 @@
-def read_words(file_path: str):
+def read_words(file_path):
 	with open(file_path, "r", encoding="utf-8") as f:
 		ret = f.read()
 	return ret
 
 
-def read_fonts(file_path: str):
+def read_fonts(file_path):
 	font_label, classes, font_list, font_bias = [], [], [], []
 	with open(file_path, "r", encoding="utf-8") as f:
 		lines = [line.rstrip("\n").split(" ") for line in f]
