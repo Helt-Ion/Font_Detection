@@ -3,7 +3,7 @@ import shutil
 import cv2
 import glob
 
-global_data_path = r"data"
+global_data_path = r"cutimg_data"
 global_input_path = os.path.join(global_data_path, "input/test")
 global_output_path = os.path.join(global_data_path, "output")
 global_font_size = 32
