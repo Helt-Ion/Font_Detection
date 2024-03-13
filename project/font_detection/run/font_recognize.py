@@ -32,8 +32,9 @@ def predict(img, model):
 	return predicted.item()
 
 
-def init(data_path, model_path):
+def init(data_path, model_file):
 	fonts_path = os.path.join(data_path, "Fonts.txt")
+	model_path = os.path.join(data_path, model_file)
 	font_label, classes, font_list, font_bias = filereader.read_fonts(fonts_path)
 
 	# 字体种类，根据需要修改，数量要对得上，目前是20种
@@ -80,22 +81,11 @@ def recognize_font(input_img_path, model, classes_dict):
 
 
 def main():
-	# print("训练6个字体的结果：")
-	# model, classes_dict = init("run/checkpoint/test_1", "run/checkpoint/test_1/font_recognize_200.pth")
-	# recognize_font("run/input/DengXian.jpg", model, classes_dict)
-	# recognize_font("run/input/FangSong.jpg", model, classes_dict)
-	# recognize_font("run/input/HeiTi.jpg", model, classes_dict)
-	# recognize_font("run/input/KaiTi.jpg", model, classes_dict)
-	# recognize_font("run/input/SongTi.png", model, classes_dict)
-	# print("训练20个字体的结果：")
-	# model, classes_dict = init("run/checkpoint/test_2", "run/checkpoint/test_2/font_recognize_50.pth")
-	# recognize_font("run/input/DengXian.jpg", model, classes_dict)
-	# recognize_font("run/input/FangSong.jpg", model, classes_dict)
-	# recognize_font("run/input/HeiTi.jpg", model, classes_dict)
-	# recognize_font("run/input/KaiTi.jpg", model, classes_dict)
-	# recognize_font("run/input/SongTi.jpg", model, classes_dict)
 	print("训练6个字体的结果：")
-	model, classes_dict = init("run/checkpoint/test_1", "run/checkpoint/test_1/font_recognize_200.pth")
+	model, classes_dict = init("run/checkpoint/test_1", "font_recognize_200.pth")
+	recognize_font("run/input/SimSun_Large.png", model, classes_dict)
+	print("训练10个字体的结果：")
+	model, classes_dict = init("run/checkpoint/test_2", "font_recognize_200.pth")
 	recognize_font("run/input/SimSun_Large.png", model, classes_dict)
 
 
