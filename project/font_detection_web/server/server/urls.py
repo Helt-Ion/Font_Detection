@@ -23,6 +23,6 @@ from . import views
 
 urlpatterns = [
 	path("", views.index),
-    path("font_detection/", include("font_detection.urls")),
-    path("admin/", admin.site.urls),
+	path("font_detection/", include("font_detection.urls")),
+	path("admin/", admin.site.urls),
 ]
