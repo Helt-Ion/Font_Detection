@@ -2,7 +2,7 @@
 
 set VENV_DIR=%~dp0..\..\Pysetter\venv
 set PYTHON="%VENV_DIR%\python"
-set DJANGO_ADMIN="%VENV_DIR%\Scripts\django-admin.exe"
+set DJANGO_ADMIN="%VENV_DIR%\Scripts\django-admin"
 
 set PROJECT_NAME=server
 

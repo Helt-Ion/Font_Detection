@@ -205,3 +205,5 @@ def update_environment():
     accelerate_command = f"install {accelerate_package} --force-reinstall --no-deps --no-warn-script-location"
     if is_installed("accelerate"):
         run(f'"{python}" -m pip {accelerate_command}', "Updating Environment...")
+    django_command = f"install django --force-reinstall --no-deps --no-warn-script-location"
+    run(f'"{python}" -m pip {django_command}', "Reinstalling django...")
