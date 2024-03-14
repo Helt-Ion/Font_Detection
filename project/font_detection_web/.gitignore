@@ -2,3 +2,4 @@ data/**/*.*
 **/*.jpg
 **/*.png
 !.gitkeep
+db.sqlite3
