@@ -5,7 +5,7 @@ set PYTHON="%VENV_DIR%\python"
 
 :: Put your codes here
 
-%PYTHON% font_recognize.py
+%PYTHON% -m run.font_recognize
 
 @echo on
 pause

@@ -3,6 +3,6 @@
 export VENV_DIR=venv
 export PYTHON="$PWD/../../Pysetter/$VENV_DIR/bin/python3.10"
 
-$PYTHON mynet_train.py
+$PYTHON -m MyNet.train
 
 read

@@ -5,7 +5,7 @@ set PYTHON="%VENV_DIR%\python"
 
 :: Put your codes here
 
-%PYTHON% mynet_train.py
+%PYTHON% -m MyNet.train
 
 @echo on
 pause

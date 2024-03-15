@@ -5,7 +5,7 @@ set PYTHON="%VENV_DIR%\python"
 
 :: Put your codes here
 
-%PYTHON% font_generate.py
+%PYTHON% -m dataset.data_generate
 
 @echo on
 pause

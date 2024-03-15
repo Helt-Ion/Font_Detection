@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import torch
 import os
-import glob
 from torchvision.transforms import Resize
 from torch.nn.functional import softmax
 

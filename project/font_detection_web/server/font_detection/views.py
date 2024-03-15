@@ -1,10 +1,15 @@
 import base64
 from django.shortcuts import render
 from .forms import ImageUploadForm
+from .src.font_recognize import init
+
+model, classes_dict = init("font_detection/checkpoint", "font_recognize_200.pth")
 
 
 def get_prediction(image_bytes):
-    return "其他"
+    # font_type = recognize_font(image_bytes, model, classes_dict)
+    # return font_type
+	return "其他"
 
 
 def index(request):
@@ -18,7 +23,7 @@ def index(request):
             image = form.cleaned_data['image']
             image_bytes = image.file.read()
             encoded_img = base64.b64encode(image_bytes).decode('ascii')
-            image_uri = 'data:%s;base64,%s' % ('image/jpeg', encoded_img)
+            image_uri = f'data:image/jpeg;base64,{encoded_img}'
 
             # get predicted label
             try:

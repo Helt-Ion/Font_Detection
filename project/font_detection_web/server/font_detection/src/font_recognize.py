@@ -2,12 +2,11 @@ import cv2
 import numpy as np
 import torch
 import os
-import glob
 from torchvision.transforms import Resize
 from torch.nn.functional import softmax
 
-from MyNet.ldbinet import Ldbinet
-from modules import filereader, cutimg
+from .MyNet.ldbinet import Ldbinet
+from .modules import filereader, cutimg
 
 
 # 若有标红，说明有缺少库，自己安装一下
@@ -66,24 +65,22 @@ def find_majority(predict_list):
 
 
 def recognize_font(input_img_path, model, classes_dict):
-	print(f"Reading image {input_img_path}...")
 	input_img = cv2.imread(input_img_path, cv2.COLOR_GRAY2BGR)
 	segments = cutimg.segment_img(input_img)
 	predict_list = []
 	for i, img in enumerate(segments):
 		class_id = predict(img, model)
 		predict_list.append(class_id)
-		print(f"Font of image {i}: {classes_dict[class_id]}")
 	max_id = find_majority(predict_list)
 	font_type = classes_dict[max_id]
-	print(f"Font of {input_img_path}: {font_type}")
 	return font_type
 
 
 def main():
 	print("训练6个字体的结果：")
-	model, classes_dict = init("checkpoint", "font_recognize_200.pth")
-	recognize_font("input/SimSun_Large.png", model, classes_dict)
+	model, classes_dict = init("src/checkpoint", "font_recognize_200.pth")
+	font_type = recognize_font("src/input/SimSun_Large.png", model, classes_dict)
+	print(f"识别结果：{font_type}")
 
 
 if __name__ == '__main__':
