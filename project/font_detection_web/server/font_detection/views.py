@@ -1,14 +1,10 @@
 import base64
-import io
-import json
-import os
 from django.shortcuts import render
-from django.conf import settings
 from .forms import ImageUploadForm
 
 
 def get_prediction(image_bytes):
-    return "Default"
+    return "其他"
 
 
 def index(request):
