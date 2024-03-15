@@ -56,7 +56,7 @@ def find_majority(predict_list):
 	max_id, max_cnt = 0, 0
 	flag = False
 	for k, v in predict_map.items():
-		if flag == False:
+		if not flag:
 			max_id, max_cnt = k, v
 			flag = True
 		elif v > max_cnt:
@@ -64,8 +64,7 @@ def find_majority(predict_list):
 	return max_id
 
 
-def recognize_font(input_img_path, model, classes_dict):
-	input_img = cv2.imread(input_img_path, cv2.COLOR_GRAY2BGR)
+def recognize_font(input_img, model, classes_dict):
 	segments = cutimg.segment_img(input_img)
 	predict_list = []
 	for i, img in enumerate(segments):
@@ -76,10 +75,20 @@ def recognize_font(input_img_path, model, classes_dict):
 	return font_type
 
 
+def recognize_font_path(input_img_path, model, classes_dict):
+	input_img = cv2.imread(input_img_path, cv2.COLOR_GRAY2BGR)
+	return recognize_font(input_img, model, classes_dict)
+
+
+def recognize_font_pil(pil_image, model, classes_dict):
+	input_img = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2BGR)
+	return recognize_font(input_img, model, classes_dict)
+
+
 def main():
 	print("训练6个字体的结果：")
 	model, classes_dict = init("src/checkpoint", "font_recognize_200.pth")
-	font_type = recognize_font("src/input/SimSun_Large.png", model, classes_dict)
+	font_type = recognize_font_path("src/input/SimSun_Large.png", model, classes_dict)
 	print(f"识别结果：{font_type}")
 
 

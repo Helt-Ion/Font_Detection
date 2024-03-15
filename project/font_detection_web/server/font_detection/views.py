@@ -1,15 +1,17 @@
+import io
 import base64
+from PIL import Image
 from django.shortcuts import render
 from .forms import ImageUploadForm
-from .src.font_recognize import init
+from .src.font_recognize import init, recognize_font_pil
 
 model, classes_dict = init("font_detection/checkpoint", "font_recognize_200.pth")
 
 
 def get_prediction(image_bytes):
-    # font_type = recognize_font(image_bytes, model, classes_dict)
-    # return font_type
-	return "其他"
+    pil_image = Image.open(io.BytesIO(image_bytes))
+    font_type = recognize_font_pil(pil_image, model, classes_dict)
+    return font_type
 
 
 def index(request):

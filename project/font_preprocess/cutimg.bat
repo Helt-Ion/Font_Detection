@@ -5,7 +5,7 @@ set PYTHON="%VENV_DIR%\python"
 
 :: Put your codes here
 
-%PYTHON% cutimg.py
+%PYTHON% -m cutimg
 
 @echo on
 pause
