@@ -9,7 +9,7 @@ set PORT=9000
 :: Put your codes here
 
 cd %PROJECT_NAME%
-%PYTHON% manage.py runserver %PORT%
+%PYTHON% -m manage runserver %PORT%
 
 @echo on
 pause

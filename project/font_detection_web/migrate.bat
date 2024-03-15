@@ -8,7 +8,7 @@ set PROJECT_NAME=server
 :: Put your codes here
 
 cd %PROJECT_NAME%
-%PYTHON% manage.py migrate
+%PYTHON% -m manage migrate
 
 @echo on
 pause
