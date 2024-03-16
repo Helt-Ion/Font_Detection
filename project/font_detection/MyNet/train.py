@@ -109,7 +109,7 @@ def run(data_path):
 		# Disable automatic differentiation
 		with torch.no_grad():
 			for test_batch, (test_image, test_label) in enumerate(data_test_loader):
-				print(f"Test batch {test_batch + 1}:")
+				print(f"Test batch {test_batch + 1}")
 				test_image, test_label = test_image.to(device), test_label.to(device)
 				predictions = model(test_image)
 				test_loss = creation(predictions, test_label)
