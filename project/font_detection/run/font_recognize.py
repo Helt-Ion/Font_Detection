@@ -80,12 +80,12 @@ def recognize_font(input_img_path, model, classes_dict):
 
 
 def main():
-	print("训练6个字体的结果：")
+	print("Font Recognize Test:")
 	model, classes_dict = init("run/checkpoint/test_1", "font_recognize_200.pth")
+	print("Test_1:")
 	recognize_font("run/input/SimSun_Large.png", model, classes_dict)
-	print("训练10个字体的结果：")
-	model, classes_dict = init("run/checkpoint/test_2", "font_recognize_200.pth")
-	recognize_font("run/input/SimSun_Large.png", model, classes_dict)
+	print("Test_2:")
+	recognize_font("run/input/HeiTi.jpg", model, classes_dict)
 
 
 if __name__ == '__main__':
