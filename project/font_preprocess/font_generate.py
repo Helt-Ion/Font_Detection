@@ -10,40 +10,42 @@ from modules import filereader
 global_data_path = "font_generate_data"
 
 
-def font_generate(data_path):
-	print(f"Generating fonts...")
-	words_path = os.path.join(data_path, "Words.txt")
-	fonts_info_path = os.path.join(data_path, "Fonts.txt")
-	fonts_lib_path = os.path.join(data_path, "fonts")
-	file_root_dir = os.path.join(data_path, "output")
-	f_words = filereader.read_words(words_path)
-	font_label, classes, font_list, font_bias = filereader.read_fonts(fonts_info_path)
+def generate(file_root_dir, fonts_lib_path, fonts_info_path, indexes):
 	if os.path.exists(file_root_dir):
 		shutil.rmtree(file_root_dir)
 	os.makedirs(file_root_dir, exist_ok=True)
-	for _, (label, font, bias) in enumerate(zip(classes, font_list, font_bias)):
-		font_file = os.path.join(fonts_lib_path, font)
-		font_dir = os.path.join(file_root_dir, label)
-		print(f"Generating {label} from {font_file}...")
-		if not os.path.exists(font_dir):
-			os.mkdir(font_dir)
-		for i, word in enumerate(f_words):
-			img = Image.new("RGB", (32, 32), (255, 255, 255))
-			draw = ImageDraw.Draw(img)
-			# 在图片上添加文字
-			# fill用来设置绘制文字的颜色,(R,G,B)
-			draw.text((0, bias), word, fill=(0, 0, 0), font=ImageFont.truetype(font_file, 32, encoding="utf-8"))
-			img_cv2 = cv2.cvtColor(numpy.array(img), cv2.COLOR_RGB2GRAY)
-			_, output_img = cv2.threshold(img_cv2, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY)
-			output_img = cv2.cvtColor(output_img, cv2.COLOR_GRAY2BGR)
-			# 保存图片
-			img_path = os.path.join(font_dir, f"{label}_{i + 1}.png")
-			cv2.imwrite(img_path, output_img)
-
+	font_list = filereader.read_fonts(fonts_info_path)
+	for (font_name, font_class, sample_list) in font_list:
+		print(f"Generating {font_class}...")
+		for sample_index, (font, bias) in enumerate(sample_list):
+			font_file = os.path.join(fonts_lib_path, font)
+			sample_name = f"sample_{sample_index}"
+			font_dir = os.path.join(file_root_dir, font_class, sample_name)
+			print(f"Generating {font_class}/{sample_name} from {font_file}...")
+			os.makedirs(font_dir, exist_ok=True)
+			for i, word in indexes:
+				img = Image.new("RGB", (32, 32), (255, 255, 255))
+				draw = ImageDraw.Draw(img)
+				# Add text to image
+				# fill controls the color of text, (R, G, B)
+				draw.text((0, bias), word, fill=(0, 0, 0), font=ImageFont.truetype(font_file, 32, encoding="utf-8"))
+				img_cv2 = cv2.cvtColor(numpy.array(img), cv2.COLOR_RGB2GRAY)
+				_, output_img = cv2.threshold(img_cv2, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY)
+				output_img = cv2.cvtColor(output_img, cv2.COLOR_GRAY2BGR)
+				# Save image
+				img_path = os.path.join(font_dir, f"{font_class}_{sample_name}_{i + 1}.png")
+				cv2.imwrite(img_path, output_img)
 
 
 def main():
-	font_generate(global_data_path)
+	print(f"Generating fonts...")
+	words_path = os.path.join(global_data_path, "Words.txt")
+	fonts_info_path = os.path.join(global_data_path, "Fonts.xml")
+	fonts_lib_path = os.path.join(global_data_path, "fonts")
+	file_root_dir = os.path.join(global_data_path, "output")
+	f_words = filereader.read_words(words_path)
+	indexes = list(enumerate(f_words))
+	generate(file_root_dir, fonts_lib_path, fonts_info_path, indexes)
 
 
 if __name__ == '__main__':
