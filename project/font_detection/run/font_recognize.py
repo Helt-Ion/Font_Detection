@@ -32,13 +32,13 @@ def predict(img, model):
 
 
 def init(data_path, model_file):
-	fonts_path = os.path.join(data_path, "Fonts.txt")
+	fonts_path = os.path.join(data_path, "Fonts.xml")
 	model_path = os.path.join(data_path, model_file)
-	font_label, classes, font_list, font_bias = filereader.read_fonts(fonts_path)
+	font_labels, font_classes, font_list = filereader.read_fonts(fonts_path)
 
 	# 字体种类，根据需要修改，数量要对得上，目前是20种
-	num_classes = len(classes)
-	classes_dict = dict(zip(list(range(num_classes)), font_label))
+	num_classes = len(font_classes)
+	classes_dict = dict(zip(list(range(num_classes)), font_labels))
 	model = Ldbinet(num_classes=num_classes)  # 如果标红，自己import一下
 	model.load_state_dict(torch.load(model_path, map_location="cpu"))
 	model.cpu()

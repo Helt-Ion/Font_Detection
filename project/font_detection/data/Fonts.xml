@@ -1,34 +1,34 @@
 <fonts>
 	<font>
-		<name>宋体</name>
+		<label>宋体</label>
 		<class>font_0</class>
 		<sample>
 			<file>宋体.ttf</file>
-			<bias>0</bias>
+			<bias>-1</bias>
 		</sample>
 		<sample>
 			<file>小标宋.ttf</file>
-			<bias>0</bias>
+			<bias>-2</bias>
 		</sample>
 	</font>
 	<font>
-		<name>幼圆</name>
+		<label>幼圆</label>
 		<class>font_1</class>
 		<sample>
 			<file>幼圆.ttf</file>
-			<bias>0</bias>
+			<bias>-1</bias>
 		</sample>
 	</font>
 	<font>
-		<name>黑体</name>
+		<label>黑体</label>
 		<class>font_2</class>
 		<sample>
 			<file>黑体.ttf</file>
-			<bias>0</bias>
+			<bias>-1</bias>
 		</sample>
 	</font>
 	<font>
-		<name>楷体</name>
+		<label>楷体</label>
 		<class>font_3</class>
 		<sample>
 			<file>楷体.ttf</file>
@@ -40,11 +40,11 @@
 		</sample>
 	</font>
 	<font>
-		<name>隶书</name>
+		<label>隶书</label>
 		<class>font_4</class>
 		<sample>
 			<file>隶书.ttf</file>
-			<bias>0</bias>
+			<bias>-2</bias>
 		</sample>
 		<sample>
 			<file>华文隶书.TTF</file>

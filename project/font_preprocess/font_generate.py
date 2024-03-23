@@ -14,8 +14,8 @@ def generate(file_root_dir, fonts_lib_path, fonts_info_path, indexes):
 	if os.path.exists(file_root_dir):
 		shutil.rmtree(file_root_dir)
 	os.makedirs(file_root_dir, exist_ok=True)
-	font_list = filereader.read_fonts(fonts_info_path)
-	for (font_name, font_class, sample_list) in font_list:
+	font_labels, font_classes, font_list = filereader.read_fonts(fonts_info_path)
+	for (font_label, font_class, sample_list) in zip(font_labels, font_classes, font_list):
 		print(f"Generating {font_class}...")
 		for sample_index, (font, bias) in enumerate(sample_list):
 			font_file = os.path.join(fonts_lib_path, font)

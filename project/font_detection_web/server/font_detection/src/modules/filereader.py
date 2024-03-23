@@ -1,3 +1,6 @@
+import xml.etree.ElementTree as ElementTree
+
+
 def read_words(file_path):
 	with open(file_path, "r", encoding="utf-8") as f:
 		ret = f.read()
@@ -5,12 +8,18 @@ def read_words(file_path):
 
 
 def read_fonts(file_path):
-	font_label, classes, font_list, font_bias = [], [], [], []
-	with open(file_path, "r", encoding="utf-8") as f:
-		lines = [line.rstrip("\n").split(" ") for line in f]
-		for label, class_name, path, bias in lines:
-			font_label.append(label), classes.append(class_name), font_list.append(path), font_bias.append(int(bias))
-	return font_label, classes, font_list, font_bias
+	font_labels, font_classes, font_list = [], [], []
+	tree = ElementTree.parse(file_path)
+	for font in tree.findall('font'):
+		font_label = font.find('label').text
+		font_class = font.find('class').text
+		sample_list = []
+		for sample in font.findall('sample'):
+			sample_list.append((sample.find('file').text, int(sample.find('bias').text)))
+		font_labels.append(font_label)
+		font_classes.append(font_class)
+		font_list.append(sample_list)
+	return font_labels, font_classes, font_list
 
 
 def main():
@@ -18,15 +27,13 @@ def main():
 	words = read_words("../data/Words.txt")
 	print("Words:")
 	print(words)
-	font_label, classes, font_list, font_bias = read_fonts("../data/Fonts.txt")
+	font_labels, font_classes, font_list = read_fonts("../data/Fonts.xml")
 	print("font_label:")
-	print(font_label)
-	print("classes:")
-	print(classes)
+	print(font_labels)
+	print("font_classes:")
+	print(font_classes)
 	print("font_list:")
 	print(font_list)
-	print("font_bias:")
-	print(font_bias)
 
 
 if __name__ == "__main__":

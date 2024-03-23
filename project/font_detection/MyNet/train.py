@@ -13,8 +13,8 @@ global_data_path = "data"
 
 
 def run(data_path):
-	fonts_path = os.path.join(data_path, "Fonts.txt")
-	font_label, classes, font_list, font_bias = filereader.read_fonts(fonts_path)
+	fonts_path = os.path.join(data_path, "Fonts.xml")
+	font_labels, font_classes, font_list = filereader.read_fonts(fonts_path)
 	train_imgs_path = glob.glob(os.path.join(data_path, "train/**/*.*"), recursive=True)
 	test_imgs_path = glob.glob(os.path.join(data_path, "test/**/*.*"), recursive=True)
 	# Define model path
@@ -35,9 +35,9 @@ def run(data_path):
 	# Define batch size
 	batch_size = 32
 	data_train, data_train_loader, data_test, data_test_loader \
-		= data_get(train_imgs_path, test_imgs_path, classes, batch_size, transform)
+		= data_get(train_imgs_path, test_imgs_path, font_classes, batch_size, transform)
 	# Define model
-	model = Ldbinet(num_classes=len(classes))
+	model = Ldbinet(num_classes=len(font_classes))
 	if model_load_path is not None:
 		model.load_state_dict(torch.load(model_load_path))
 	model.eval()

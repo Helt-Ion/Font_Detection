@@ -8,16 +8,18 @@ def read_words(file_path):
 
 
 def read_fonts(file_path):
-	font_list = []
+	font_labels, font_classes, font_list = [], [], []
 	tree = ElementTree.parse(file_path)
 	for font in tree.findall('font'):
-		font_name = font.find('name').text
+		font_label = font.find('label').text
 		font_class = font.find('class').text
 		sample_list = []
 		for sample in font.findall('sample'):
 			sample_list.append((sample.find('file').text, int(sample.find('bias').text)))
-		font_list.append((font_name, font_class, sample_list))
-	return font_list
+		font_labels.append(font_label)
+		font_classes.append(font_class)
+		font_list.append(sample_list)
+	return font_labels, font_classes, font_list
 
 
 def main():
@@ -25,7 +27,11 @@ def main():
 	words = read_words("../data/Words.txt")
 	print("Words:")
 	print(words)
-	font_list = read_fonts("../data/Fonts.xml")
+	font_labels, font_classes, font_list = read_fonts("../data/Fonts.xml")
+	print("font_label:")
+	print(font_labels)
+	print("font_classes:")
+	print(font_classes)
 	print("font_list:")
 	print(font_list)
 

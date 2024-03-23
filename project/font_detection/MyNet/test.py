@@ -44,11 +44,11 @@ def recognize_font(img, model, classes_dict):
 
 
 def recognize(data_path, model_path, test_path):
-	fonts_path = os.path.join(data_path, "Fonts.txt")
-	font_label, classes, font_list, font_bias = filereader.read_fonts(fonts_path)
+	fonts_path = os.path.join(data_path, "Fonts.xml")
+	font_labels, font_classes, font_list = filereader.read_fonts(fonts_path)
 	# Number of font classes
-	num_classes = len(classes)
-	classes_dict = dict(zip(list(range(num_classes)), font_label))
+	num_classes = len(font_classes)
+	classes_dict = dict(zip(list(range(num_classes)), font_labels))
 	model = Ldbinet(num_classes=num_classes)
 	model.cpu()
 	model.load_state_dict(torch.load(model_path, map_location="cpu"))
