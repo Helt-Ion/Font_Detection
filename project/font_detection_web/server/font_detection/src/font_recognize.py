@@ -32,7 +32,7 @@ def predict(img, model):
 
 
 def init(data_path, model_file):
-	fonts_path = os.path.join(data_path, "Fonts.txt")
+	fonts_path = os.path.join(data_path, "Fonts.xml")
 	model_path = os.path.join(data_path, model_file)
 	font_labels, font_classes, font_list = filereader.read_fonts(fonts_path)
 
