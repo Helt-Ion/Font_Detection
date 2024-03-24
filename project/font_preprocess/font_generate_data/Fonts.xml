@@ -1,7 +1,7 @@
 <fonts>
 	<font>
 		<label>宋体</label>
-		<class>font_0</class>
+		<class>SongTi</class>
 		<sample>
 			<file>宋体.ttf</file>
 			<bias>-1</bias>
@@ -10,38 +10,114 @@
 			<file>小标宋.ttf</file>
 			<bias>-2</bias>
 		</sample>
+		<sample>
+			<file>方正公文小标宋.ttf</file>
+			<bias>0</bias>
+		</sample>
+		<sample>
+			<file>方正大标宋简体.TTF</file>
+			<bias>0</bias>
+		</sample>
+		<sample>
+			<file>华文宋体.TTF</file>
+			<bias>0</bias>
+		</sample>
 	</font>
 	<font>
-		<label>幼圆</label>
-		<class>font_1</class>
+		<label>仿宋</label>
+		<class>FangSong</class>
 		<sample>
-			<file>幼圆.ttf</file>
+			<file>仿宋.ttf</file>
+			<bias>0</bias>
+		</sample>
+		<sample>
+			<file>仿宋_GB2312.ttf</file>
 			<bias>-1</bias>
+		</sample>
+		<sample>
+			<file>方正仿宋简体.TTF</file>
+			<bias>-2</bias>
+		</sample>
+		<sample>
+			<file>方正公文仿宋.ttf</file>
+			<bias>-1</bias>
+		</sample>
+		<sample>
+			<file>华文仿宋.ttf</file>
+			<bias>-6</bias>
 		</sample>
 	</font>
 	<font>
 		<label>黑体</label>
-		<class>font_2</class>
+		<class>HeiTi</class>
 		<sample>
 			<file>黑体.ttf</file>
 			<bias>-1</bias>
 		</sample>
+		<sample>
+			<file>方正大黑简体.ttf</file>
+			<bias>-2</bias>
+		</sample>
+		<sample>
+			<file>方正黑体简体.TTF</file>
+			<bias>-1</bias>
+		</sample>
+		<sample>
+			<file>微软雅黑.TTC</file>
+			<bias>-6</bias>
+		</sample>
+		<sample>
+			<file>印品黑体.ttf</file>
+			<bias>-7</bias>
+		</sample>
+		<sample>
+			<file>字魂35号-经典雅黑.ttf</file>
+			<bias>0</bias>
+		</sample>
+		<sample>
+			<file>字魂105号-简雅黑.ttf</file>
+			<bias>0</bias>
+		</sample>
 	</font>
 	<font>
 		<label>楷体</label>
-		<class>font_3</class>
+		<class>KaiTi</class>
 		<sample>
 			<file>楷体.ttf</file>
 			<bias>0</bias>
 		</sample>
 		<sample>
-			<file>楷体_GB2312.ttf</file>
+			<file>方正北魏楷书简体.ttf</file>
+			<bias>0</bias>
+		</sample>
+		<sample>
+			<file>方正曾正国楷体.ttf</file>
+			<bias>0</bias>
+		</sample>
+		<sample>
+			<file>方正粗楷简体.TTF</file>
+			<bias>-3</bias>
+		</sample>
+		<sample>
+			<file>方正公文楷体.TTF</file>
+			<bias>-1</bias>
+		</sample>
+		<sample>
+			<file>方正楷体简体.TTF</file>
+			<bias>0</bias>
+		</sample>
+		<sample>
+			<file>华文楷体.ttf</file>
+			<bias>-6</bias>
+		</sample>
+		<sample>
+			<file>字魂36号-正文宋楷.ttf</file>
 			<bias>0</bias>
 		</sample>
 	</font>
 	<font>
 		<label>隶书</label>
-		<class>font_4</class>
+		<class>LiShu</class>
 		<sample>
 			<file>隶书.ttf</file>
 			<bias>-2</bias>
@@ -49,6 +125,18 @@
 		<sample>
 			<file>华文隶书.TTF</file>
 			<bias>0</bias>
+		</sample>
+		<sample>
+			<file>铁骨隶书.ttf</file>
+			<bias>0</bias>
+		</sample>
+		<sample>
+			<file>方正栋隶简体.TTF</file>
+			<bias>0</bias>
+		</sample>
+		<sample>
+			<file>方正隶书简体.ttf</file>
+			<bias>-2</bias>
 		</sample>
 	</font>
 </fonts>
