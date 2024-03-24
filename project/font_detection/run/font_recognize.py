@@ -81,7 +81,7 @@ def recognize_font(input_img_path, model, classes_dict):
 
 def main():
 	print("Font Recognize Test:")
-	model, classes_dict = init("run/checkpoint/test_1", "font_recognize_200.pth")
+	model, classes_dict = init("run/checkpoint/test_1", "font_recognize_100.pth")
 	print("Test_1:")
 	recognize_font("run/input/SimSun_Large.png", model, classes_dict)
 	print("Test_2:")

@@ -10,7 +10,7 @@ from MyNet.ldbinet import Ldbinet
 from modules import filereader
 
 global_data_path = "data"
-global_model_path = "MyNet/checkpoint/font_recognize_200.pth"
+global_model_path = "MyNet/checkpoint/font_recognize_100.pth"
 global_test_path = "MyNet/test"
 
 
