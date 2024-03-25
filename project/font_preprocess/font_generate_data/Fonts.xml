@@ -139,4 +139,28 @@
 			<bias>-2</bias>
 		</sample>
 	</font>
+	<font>
+		<label>等线</label>
+		<class>DengXian</class>
+		<sample>
+			<file>等线.ttf</file>
+			<bias>-2</bias>
+		</sample>
+		<sample>
+			<file>汉仪特细等线简.TTF</file>
+			<bias>-1</bias>
+		</sample>
+		<sample>
+			<file>汉仪细等线简.TTF</file>
+			<bias>-1</bias>
+		</sample>
+		<sample>
+			<file>汉仪中等线简.TTF</file>
+			<bias>-1</bias>
+		</sample>
+		<sample>
+			<file>方正细等线简体.TTF</file>
+			<bias>-2</bias>
+		</sample>
+	</font>
 </fonts>
