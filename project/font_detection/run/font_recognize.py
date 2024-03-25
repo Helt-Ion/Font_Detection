@@ -86,6 +86,8 @@ def main():
 	recognize_font("run/input/SimSun_Large.png", model, classes_dict)
 	print("Test_2:")
 	recognize_font("run/input/HeiTi.jpg", model, classes_dict)
+	print("Test_3:")
+	recognize_font("run/input/DengXian.jpg", model, classes_dict)
 
 
 if __name__ == '__main__':
