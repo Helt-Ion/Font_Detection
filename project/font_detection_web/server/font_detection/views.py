@@ -5,7 +5,7 @@ from django.shortcuts import render
 from .forms import ImageUploadForm
 from .src.font_recognize import init, recognize_font_pil
 
-model, classes_dict = init("font_detection/checkpoint", "font_recognize_200.pth")
+model, classes_dict = init("font_detection/checkpoint", "font_recognize_100.pth")
 
 
 def get_prediction(image_bytes):
