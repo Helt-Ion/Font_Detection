@@ -87,7 +87,7 @@ def recognize_font_pil(pil_image, model, classes_dict):
 
 def main():
 	print("Font Recognize Test: ")
-	model, classes_dict = init("src/checkpoint", "font_recognize_100.pth")
+	model, classes_dict = init("src/checkpoint", "font_recognize_200.pth")
 	font_type = recognize_font_path("src/input/SimSun_Large.png", model, classes_dict)
 	print(f"Font: {font_type}")
 
