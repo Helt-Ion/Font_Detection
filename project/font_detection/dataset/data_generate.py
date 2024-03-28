@@ -20,8 +20,9 @@ def generate(file_root_dir, fonts_lib_path, fonts_info_path, indexes):
 		for sample_index, (font, bias) in enumerate(sample_list):
 			font_file = os.path.join(fonts_lib_path, font)
 			sample_name = f"sample_{sample_index}"
-			font_dir = os.path.join(file_root_dir, font_class, sample_name)
-			print(f"Generating {font_class}/{sample_name} from {font_file}...")
+			variant_name = f"base"
+			font_dir = os.path.join(file_root_dir, font_class, sample_name, variant_name)
+			print(f"Generating {font_class}/{sample_name}/{variant_name} from {font_file}...")
 			os.makedirs(font_dir, exist_ok=True)
 			for i, word in indexes:
 				img = Image.new("RGB", (32, 32), (255, 255, 255))

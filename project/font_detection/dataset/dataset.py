@@ -29,14 +29,14 @@ def data_get(train_imgs_path, test_imgs_path, classes, batch_size, transform):
 	test_labels = []
 	for img in train_imgs_path:
 		# Get the corresponding font class of the image
-		font_dir = os.path.dirname(os.path.dirname(img))
+		font_dir = os.path.dirname(os.path.dirname(os.path.dirname(img)))
 		img_class = os.path.basename(font_dir)
 		for i, c in enumerate(classes):
 			if c == img_class:
 				train_labels.append(i)
 	for img in test_imgs_path:
 		# Get the corresponding font class of the image
-		font_dir = os.path.dirname(os.path.dirname(img))
+		font_dir = os.path.dirname(os.path.dirname(os.path.dirname(img)))
 		img_class = os.path.basename(font_dir)
 		for i, c in enumerate(classes):
 			if c == img_class:
@@ -48,27 +48,8 @@ def data_get(train_imgs_path, test_imgs_path, classes, batch_size, transform):
 	return data_train, data_train_loader, data_test, data_test_loader
 
 
-def data_get_normal(imgs_path, classes, batch_size, transform):
-	labels = []
-	for img in imgs_path:
-		for i, c in enumerate(classes):
-			if c in img:
-				labels.append(i)
-	data = Mydatasetpro(imgs_path, labels, transform)
-	data_loader = DataLoader(data, batch_size=batch_size, shuffle=False)
-	return data, data_loader
-
-
 def main():
-	mpl.rcParams["font.sans-serif"] = ["SimHei"]
-	# 测试下数据集里的图片
-	# plt.figure(figsize=(12, 8))
-	# for i, (img, label) in enumerate(zip(imgs_batch[:32], labels_batch[:8])):
-	#     img = img.permute(1, 2, 0).numpy()
-	#     plt.subplot(2, 4, i + 1)
-	#     plt.xlabel(classes[label.numpy()])
-	#     plt.imshow(img)
-	# plt.show()
+	print("Hello Dataset!")
 
 
 if __name__ == '__main__':
