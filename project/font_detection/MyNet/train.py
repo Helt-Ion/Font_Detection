@@ -22,7 +22,7 @@ def run(data_path):
 	model_load_dir = "MyNet/checkpoint"
 	model_save_dir = "MyNet/models"
 	input_model = ""
-	output_model = "font_recognize_200.pth"
+	output_model = "font_recognize_50.pth"
 	model_load_path = None
 	if input_model != "":
 		model_load_path = os.path.join(model_load_dir, input_model)
@@ -51,7 +51,7 @@ def run(data_path):
 	beta2 = 0.999
 	optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, betas=(beta1, beta2))
 	lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=32)
-	epochs = 200
+	epochs = 50
 	train_steps = 0
 	test_steps = 0
 	# Show number of training images
